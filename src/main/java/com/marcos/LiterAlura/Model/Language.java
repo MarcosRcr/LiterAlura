@@ -20,7 +20,7 @@ public enum Language {
         throw new IllegalArgumentException("No se ha encontrado un lenguaje: " + text);
     }
 
-    public String getIdioma(){
+    public String getLang(){
         return this.lang;
     }
 }

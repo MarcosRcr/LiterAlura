@@ -1,12 +1,16 @@
 package com.marcos.LiterAlura;
 
-import com.marcos.LiterAlura.Service.ApiUsage;
+import com.marcos.LiterAlura.Repository.IAuthorRepository;
+import com.marcos.LiterAlura.View.Application;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class LiterAluraApplication implements CommandLineRunner {
+	@Autowired
+	private IAuthorRepository repository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(LiterAluraApplication.class, args);
@@ -14,8 +18,7 @@ public class LiterAluraApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var apiReq = new ApiUsage();
-		var json = apiReq.getData("https://gutendex.com/books/?search=La%20Divina%20Comedia");
-		System.out.println(json);
+		Application application = new Application(repository);
+		application.showMenu();
 	}
 }
