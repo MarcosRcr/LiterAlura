@@ -15,7 +15,7 @@ public class LiterAluraApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		var apiReq = new ApiUsage();
-		var json = apiReq.apiRequest("https://gutendex.com/books/?search=La%20Divina%20Comedia");
+		var json = apiReq.getData("https://gutendex.com/books/?search=La%20Divina%20Comedia");
 		System.out.println(json);
 	}
 }
